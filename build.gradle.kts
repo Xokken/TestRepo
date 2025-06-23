@@ -9,6 +9,14 @@ detekt {
     buildUponDefaultConfig = true
 }
 
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        html.required.set(true)
+        xml.required.set(false)
+        txt.required.set(false)
+    }
+}
+
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
@@ -17,6 +25,7 @@ repositories {
 }
 
 dependencies {
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.6")
     testImplementation(kotlin("test"))
 }
 

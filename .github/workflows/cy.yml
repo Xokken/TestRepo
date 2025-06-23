@@ -16,7 +16,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Run Detekt
-        run: ./gradlew detekt
+        run: ./gradlew detektMain --no-daemon
 
   build-and-test:
     needs: quality-check
